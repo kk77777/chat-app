@@ -23,5 +23,6 @@ socket.on('chat', function(data) {
 });
 
 socket.on('typing', function(data) {
-  feedback.innerHTML = '<p><em>' + data + ' is typing.</em></p>';
+  feedback.innerHTML =
+    '<p style="color:#0000ff"><em>' + data + ' is typing.</em></p>';
 });
