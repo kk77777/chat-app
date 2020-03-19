@@ -12,7 +12,16 @@ btn.addEventListener('click', function() {
   });
 });
 
+message.addEventListener('keypress', function() {
+  socket.emit('typing', user.value);
+});
+
 socket.on('chat', function(data) {
+  feedback.innerHTML = '';
   output.innerHTML +=
     '<p><strong>' + data.user + ':</strong>' + data.message + '</p>';
+});
+
+socket.on('typing', function(data) {
+  feedback.innerHTML = '<p><em>' + data + ' is typing.</em></p>';
 });
